@@ -3,13 +3,14 @@ import axios from 'axios';
 var url = 'http://localhost:8081/wsdl?wsdl';
 
 var token = localStorage.getItem("token");
+var user;
 
 if(token!=null){
 
     axios.post("http://localhost:8083/api/checkToken",{
         token:token
         }).then(response => {
-            console.log("good")
+            user = response.data.username;
         }).catch(error => {
             window.location.replace("/login");
         })
@@ -93,6 +94,25 @@ cancelReservation.addEventListener("submit",function(event){
             token : token
         }
     }).then(response => {
+            console.log(response.data);
+        }).catch(error => {
+            console.log(error);
+        })
+
+})
+
+var getMyReservation = document.getElementById("getMyReservation");
+
+getMyReservation.addEventListener("submit",function(event){
+
+    event.preventDefault();
+    var params = {
+
+        username : user
+
+    }
+
+    axios.get("/getMyReservation",{params:params}).then(response => {
             console.log(response.data);
         }).catch(error => {
             console.log(error);

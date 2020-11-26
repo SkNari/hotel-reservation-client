@@ -7,7 +7,6 @@ if(token!=null){
     axios.post("http://localhost:8083/api/checkToken",{
         token:token
         }).then(response => {
-            console.log("good")
             window.location.replace("/");
         }).catch(error => {
             console.log("unauthorized")

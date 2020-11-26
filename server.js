@@ -3,6 +3,7 @@ const app = express();
 const path = require('path');
 const router = express.Router();
 const soap = require('soap');
+const axios = require('axios');
 
 var url = 'http://localhost:8081/wsdl?wsdl';
 
@@ -86,6 +87,24 @@ router.post('/cancelReservation',function(req,res){
         })  
     });
 
+});
+
+router.get('/getMyReservation',function(req,res){
+
+    var params = {
+
+        username: req.query.username
+
+    }
+
+    axios.get("http://localhost:8082/bookings",{params:params}).then(response => {
+        
+        res.json(response.data.data);
+
+    }).catch(error => {
+        console.log(error);
+    })
+    
 });
 
 app.use(express.json());
