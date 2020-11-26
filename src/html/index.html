@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name="getHotels" id="getHotels" method="POST">
+        <input type="text" name="rentalDate" id="rentalDate" placeholder="rentalDate">
+        <input type="text" name="numberOfNights" id="numberOfNights" placeholder="numberOfNights">
+        <input type="text" name="numberOfRooms" id="numberOfRooms" placeholder="numberOfRooms">
+        <button type="submit" id="hotelButton" name="hotelButton">getHotels</button>
+    </form>
+    <br>
+    <form name="reserverHotel" id="reserverHotel" method="POST">
+        <input type="text" name="idHotel" id="idHotel" placeholder="idHotel">
+        <input type="text" name="rentalDate" id="rentalDate" placeholder="rentalDate">
+        <input type="text" name="numberOfNights" id="numberOfNights" placeholder="numberOfNights">
+        <input type="text" name="numberOfRooms" id="numberOfRooms" placeholder="numberOfRooms">
+        <button type="submit" id="reserverButton" name="reserverButton">reserverHotel</button>
+    </form>
+    <br>
+    <form name="cancelReservation" id="cancelReservation" method="POST">
+        <input type="text" name="idReservation" id="idReservation" placeholder="idReservation">
+        <button type="submit" id="cancelButton" name="cancelButton">cancel</button>
+    </form>
+    <br>
+    <form name="getMyReservation" id="getMyReservation" method="POST">
+        <button type="submit" id="myResButton" name="myResButton">getMyReservation</button>
+    </form>
+
+    <button type="button" id="disconnect">disconnect</button>
+</body>
+</html>
+<script src="public/index.js"></script>
